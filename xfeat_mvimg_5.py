@@ -32,7 +32,7 @@ def warp_corners_and_draw_matches(ref_points, dst_points, img1, img2):
     return img_matches
 
 xfeat = XFeat()
-dataset_name = "mvimagenet_1k"
+dataset_name = "mvimgnet"
 query_imgs_dir = f"./datasets/{dataset_name}/query1k"
 class_imgs_dir = f"./datasets/{dataset_name}/reference1k"
 threshold = 5

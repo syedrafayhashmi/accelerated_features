@@ -32,7 +32,7 @@ def warp_corners_and_draw_matches(ref_points, dst_points, img1, img2):
     return img_matches
 
 xfeat = XFeat()
-dataset_name = "sku100k_v2"
+dataset_name = "sku100k"
 query_imgs_dir = f"./datasets/{dataset_name}/query_images"
 class_imgs_dir = f"./datasets/{dataset_name}/reference_images"
 threshold = 5
