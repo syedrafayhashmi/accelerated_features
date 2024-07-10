@@ -37,7 +37,7 @@ dataset_name = "MVPN_dataset"
 query_imgs_dir = f"../../kaggle/input/hlcv-dataset/{dataset_name}/query_images"
 class_imgs_dir = f"../../kaggle/input/hlcv-dataset/{dataset_name}/reference_images"
 threshold = 1
-output_dir_path = f"../../kaggle/input/hlcv-dataset/{dataset_name}/top_{threshold}"
+output_dir_path = f"kaggle/working/hlcv-dataset/{dataset_name}/top_{threshold}"
 
 query_img_path = os.listdir(query_imgs_dir)
 class_img_path = os.listdir(class_imgs_dir)
