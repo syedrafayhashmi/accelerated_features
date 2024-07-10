@@ -60,7 +60,7 @@ for query_index, query_img in enumerate(query_img_path):
         except:
             continue
         
-        mkpts_0, mkpts_1 = xfeat.match_xfeat(image0, image1, top_k=1024)
+        mkpts_0, mkpts_1 = xfeat.match_xfeat_star(image0, image1, top_k = 1024)
         
         max_matching = max(max_matching, len(mkpts_0))
         filenames[class_img] = len(mkpts_0)

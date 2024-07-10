@@ -33,11 +33,11 @@ def warp_corners_and_draw_matches(ref_points, dst_points, img1, img2):
     return img_matches
 
 xfeat = XFeat()
-dataset_name = "mvpn"
-query_imgs_dir = f"../datasets/{dataset_name}/query_images"
-class_imgs_dir = f"../datasets/{dataset_name}/reference_images"
+dataset_name = "MVPN_dataset"
+query_imgs_dir = f"./hlcv-project-datasets/{dataset_name}/query_images"
+class_imgs_dir = f"./hlcv-project-datasets/{dataset_name}/reference_images"
 threshold = 5
-output_dir_path = f"../datasets/output/{dataset_name}/top_{threshold}"
+output_dir_path = f"./hlcv-project-datasets//output/{dataset_name}/top_{threshold}"
 
 query_img_path = os.listdir(query_imgs_dir)
 class_img_path = os.listdir(class_imgs_dir)
