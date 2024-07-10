@@ -33,10 +33,10 @@ def warp_corners_and_draw_matches(ref_points, dst_points, img1, img2):
     return img_matches
 xfeat = XFeat()
 dataset_name = "mvimagenet_1k"
-query_imgs_dir = f"../../kaggle/input/hlcv-dataset/{dataset_name}/query1k"
-class_imgs_dir = f"../../kaggle/input/hlcv-dataset/{dataset_name}/reference1k"
+query_imgs_dir = f"../query1k"
+class_imgs_dir = f"../reference1k"
 threshold = 1
-output_dir_path = f"kaggle/working/output/{dataset_name}/top_{threshold}"
+output_dir_path = f"output/{dataset_name}/top_{threshold}"
 
 query_img_path = os.listdir(query_imgs_dir)
 class_img_path = os.listdir(class_imgs_dir)
