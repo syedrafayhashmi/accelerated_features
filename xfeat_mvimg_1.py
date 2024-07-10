@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import numpy as np
 import os
 import torch
@@ -30,7 +31,6 @@ def warp_corners_and_draw_matches(ref_points, dst_points, img1, img2):
                                   matchColor=(0, 255, 0), flags=2)
 
     return img_matches
-
 xfeat = XFeat()
 dataset_name = "mvimgnet"
 query_imgs_dir = f"../datasets/{dataset_name}/query1k"
