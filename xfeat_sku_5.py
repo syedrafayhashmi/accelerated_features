@@ -59,8 +59,12 @@ for query_index, query_img in enumerate(query_img_path):
             image1 = cv2.imread(os.path.join(class_imgs_dir, class_img))
         except:
             continue
-        
-        mkpts_0, mkpts_1 = xfeat.match_xfeat_star(image0, image1, top_k = 1024)
+         
+        try:
+            mkpts_0, mkpts_1 = xfeat.match_xfeat_star(image0, image1, top_k=1024)
+        except Exception as e:
+            print(f"Skipping image {class_img} due to exception: {e}")
+            continue
         
         max_matching = max(max_matching, len(mkpts_0))
         filenames[class_img] = len(mkpts_0)
