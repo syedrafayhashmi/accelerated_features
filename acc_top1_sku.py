@@ -3,7 +3,7 @@ import os
 # dataset_dir = "/home/gordian/Desktop/alexander/examples/metatrained_benchmarks/sku100_v2/output_top_1" # DEEPEMD v2
 # dataset_dir = "/home/gordian/Desktop/alexander/examples/metatrained_benchmarks/SKU100/output_top_1" # DEEPEMD v1
 #
-dataset_dir = "hlcv-project-datasets/output/sku100k_v2/top_1" # lightglue v2
+dataset_dir = "../datasets/output/sku100k/top_1" # lightglue v2
 
 total_samples = len(os.listdir(dataset_dir))
 true_positive = 0
