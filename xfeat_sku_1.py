@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/home/hlcv_team018/miniconda3/bin python
 import numpy as np
 import os
 import torch
