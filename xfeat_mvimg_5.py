@@ -1,4 +1,3 @@
-#!/home/hlcv_team018/miniconda3/bin/python
 import numpy as np
 import os
 import torch
@@ -34,8 +33,8 @@ def warp_corners_and_draw_matches(ref_points, dst_points, img1, img2):
 
 xfeat = XFeat()
 dataset_name = "mvimagenet_1k"
-query_imgs_dir = f"../query1k"
-class_imgs_dir = f"../reference1k"
+query_imgs_dir = f"~/query1k"
+class_imgs_dir = f"~/reference1k"
 threshold = 5
 output_dir_path = f"output/{dataset_name}/top_{threshold}"
 
