@@ -31,7 +31,10 @@ def warp_corners_and_draw_matches(ref_points, dst_points, img1, img2):
 
     return img_matches
 
-xfeat = XFeat()
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f"Using device: {device}")
+
+xfeat = XFeat().to(device)  # Ensure XFeat uses GPU if possible
 dataset_name = "mvimagenet_1k"
 query_imgs_dir = f"~/query1k"
 class_imgs_dir = f"~/reference1k"
@@ -47,37 +50,36 @@ n_query_imgs = 0
 for query_index, query_img in enumerate(query_img_path):
     print("Query index: ", query_index)
     image0 = cv2.imread(os.path.join(query_imgs_dir, query_img))
-    
+
     n_class_imgs = 0
     max_matching = -1
     filenames = {}
     y = time.time()
-    
+
     for class_img in class_img_path:
         try:
             image1 = cv2.imread(os.path.join(class_imgs_dir, class_img))
         except:
             continue
-        
+
         try:
             mkpts_0, mkpts_1 = xfeat.match_xfeat_star(image0, image1, top_k=1024)
         except Exception as e:
             print(f"Skipping image {class_img} due to exception: {e}")
             continue
-        
         max_matching = max(max_matching, len(mkpts_0))
         filenames[class_img] = len(mkpts_0)
         n_class_imgs += 1
-    
+
     z = time.time()
     print("Each query image takes: ", z - y)
     n_query_imgs += 1
     filenames = {k: v for k, v in sorted(filenames.items(), reverse=True, key=lambda item: item[1])}
-    
+
     for index, (reference_img_name, y) in enumerate(filenames.items()):
         if index >= threshold:
             break
-        
+
         ref_img_path = os.path.join(class_imgs_dir, reference_img_name)
         que_img_path = os.path.join(query_imgs_dir, query_img)
         output_dir = os.path.join(output_dir_path, query_img)
