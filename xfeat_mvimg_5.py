@@ -36,8 +36,8 @@ print(f"Using device: {device}")
 
 xfeat = XFeat().to(device)  # Ensure XFeat uses GPU if possible
 dataset_name = "mvimagenet_1k"
-query_imgs_dir = f"~/query1k"
-class_imgs_dir = f"~/reference1k"
+query_imgs_dir = f"../query1k"
+class_imgs_dir = f"../reference1k"
 threshold = 5
 output_dir_path = f"output/{dataset_name}/top_{threshold}"
 
